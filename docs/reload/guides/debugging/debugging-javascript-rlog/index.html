@@ -9,7 +9,7 @@
 <h2>Debugging by Logging</h2>
 <p>Logging is good old debugging method. A problem with mobile devices is that it might be hard to actually output the debug log data somewhere, and to view the data. The mosync.rlog function in Reload is meant to solve this problem, by sending debug log data over the network, from the device to the Reload Developer UI.</p>
 <p>The JavaScript syntax is very simple:</p>
-<pre class="mosync-code-cpp">mosync.rlog("Hello World");</pre>
+<pre class="mosync-code-js">mosync.rlog("Hello World");</pre>
 <p>Here is the result shown under the <strong>Log</strong> tab in the Reload UI:</p>
 <p><img src="images/Reload_Log_Example0_Highlighted.png" align="none" width="650" height="439"></p>
 <p>Note the <strong>Clear console log</strong> button at the bottom of the Log view, it is used to clear the log output.</p>
@@ -41,7 +41,7 @@
     mosync.rlog("Device version: " + device.version);
 }</pre>
 <p>Similiarly, find the <strong>vibrate()</strong> function and add another <strong>mosync.rlog</strong> statement there:</p>
-<pre class="mosync-code-cpp">function vibrate()
+<pre class="mosync-code-js">function vibrate()
 {
     navigator.notification.vibrate(500);
     mosync.rlog("I vibrated!");
@@ -57,11 +57,11 @@
 <p><img src="images/Reload_Log_Example2.png" align="none" width="650" height="439"></p>
 <h2>Using mosync.rlog with console.log</h2>
 <p>The <strong>mosync.rlog</strong> function works the same way as <strong>console.log</strong> and has been designed so as not to conflict with it. If you wish, you can override <strong>console.log</strong> with <strong>mosync.rlog</strong> in your code like this:</p>
-<pre class="mosync-code-cpp">console.log = mosync.rlog;
+<pre class="mosync-code-js">console.log = mosync.rlog;
 </pre>
 <h2>Using Logging on Multiple Devices</h2>
 <p>By providing the device name as part of the log message it is possible to see which device the message comes from. You could also add additional info, like the screen width of the device. For example, if you have two devices, and wish to see on which one the Vibrate button was touched, then write the following code in the <strong>vibrate()</strong> function:</p>
-<pre class="mosync-code-cpp">function vibrate()
+<pre class="mosync-code-js">function vibrate()
 {
     navigator.notification.vibrate(500);
     mosync.rlog(
@@ -75,7 +75,7 @@
 <p><img src="images/Reload_Log_Example4.png" align="none" width="650" height="439"></p>
 <h2>Using mosync.log</h2>
 <p>It is worth mentioning that there is also a function in wormhole.js that is called <strong>mosync.log()</strong>. This function works independently of the Reload Server and UI, and can be used also with an app built using the MoSync SDK. It writes log output using the MoSync sycall maWriteLog(). The syntax is very simple:</p>
-<pre class="mosync-code-cpp">mosync.log("Hello World");</pre>
+<pre class="mosync-code-js">mosync.log("Hello World");</pre>
 <p>The output is sent to the logcat console on Android, and to the Xcode console on iOS. This can be especially useful when debugging iOS apps, since console.log does write any debug output on iOS.</p>
 <h2>What to Try Next</h2>
 <p>Have you seen the guide on how to use the <a href="TEMPLATE_DOC_PATH/reload/guides/tools/using-javascript-workbench/index.html">JavaScript Workbench</a>? It is fun to try :-)</p>
