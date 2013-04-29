@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Debugging HTML5/JavaScript on OS X with Reload</title>
+</head>
+<body>
+<h1>Debugging HTML5/JavaScript on OS X with Reload</h1>
+<p dir="ltr">If you are running MoSync Reload on OS X, you can take advantage of the integration between the iOS simulator and the Safari browser to help debug your JavaScript code from within MoSync Reload. Here we show you how.<!--break--></p>
+<h2 dir="ltr">Requirement and Set Up</h2>
+<p>To use this debugging feature you will need an Apple Mac OS X machine with the iOS SDK installed on it.</p>
+<p>You will also need MoSync Reload Beta 4 or later.</p>
+<blockquote><p><strong>Note</strong> that this feature is <em>not</em> implemented on the MoSync Reload Client available from the Apple App Store. You must build and install the Reload Client that comes with the latest <a href="http://www.mosync.com/download/reload">Reload download</a>. Please note the client included in the package is only compatible with iOS 5 and above.&nbsp;</p>
+</blockquote><p>Follow the guide for <a href="TEMPLATE_DOC_PATH/reload/guides/quick-start/mosync-reload-quick-start/index.html">Using MoSync Reload</a> to get started.</p>
+<h2>Using the iOS JavaScript Debugger</h2>
+<p><strong>1.</strong> Open the iOS Client in the downloaded package in xCode and run it on the iOS simulator, the running app should look like this:</p>
+<p><img src="images/debug-js-on-ios-with-reload-01.png" align="none" width="264" height="496"></p>
+<p dir="ltr"><strong>2.</strong> Run the MoSync Reload Server and connect the simulator client to it.</p>
+<p dir="ltr"><strong>3.</strong> Reload an app to your client. If you have not yet created an app, just create a new project using our basic Web-based template:</p>
+<p dir="ltr"><img src="images/debug-js-on-ios-with-reload-02.png" align="none" width="264" height="496"></p>
+<p dir="ltr"><strong>4.</strong> Now open a Safari Window and enter the following address in the address bar:</p>
+<pre class="mosync-code-cpp">http://localhost:9999/?page=1</pre>
+<p dir="ltr"><strong>5.</strong> The browser will open the Web Inspector view with access to your HTML5 code running on the simulator. Your browser window should look something like this:</p>
+<p dir="ltr"><img src="images/debug-js-on-ios-with-reload-03.png" align="none" width="649" height="572"></p>
+<p dir="ltr"><strong></strong>The debugger is a full featured debugger that uses the built-in webkit functionality on the device. Therefore you can change the DOM in real time (for Web UI only), change the CSS, and use breakpoints in JavaScript.</p>
+<p dir="ltr">For example if you click on a part of the HTML code in the debugger that element will be highlighted on the simulator screen and you can inspect the result of your code:</p>
+<p dir="ltr"><img src="images/debug-js-on-ios-with-reload-04.png" align="none" width="264" height="496"></p>
+<blockquote><p dir="ltr"><strong>Note</strong>: To be able to load the debugger for each new reloaded app you need to refresh the page in your Safari Window.</p>
+</blockquote><p dir="ltr">&nbsp;</p>
+</body>
+</html>
