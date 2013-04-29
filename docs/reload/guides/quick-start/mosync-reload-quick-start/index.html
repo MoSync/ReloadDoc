@@ -1,0 +1,148 @@
+<html>
+<head>
+<title>Using MoSync Reload</title>
+</head>
+<body>
+<h1>Using MoSync Reload</h1>
+<p>MoSync® Reload is a tool for the rapid development of mobile applications in HTML5 and JavaScript for iOS, Android and Windows Phone mobile platforms. With MoSync Reload you can quickly edit your HTML/JS/CSS code and rapidly run it on one or multiple devices. Just like in the Web browser. Forget long build times! <!--break--></p>
+<p></p>
+<blockquote><p><strong>Note</strong>: This guide helps you getting started using MoSync Reload. To get started with HTML5/JS development in the <strong>MoSync SDK</strong>, check out the<strong> <a href="TEMPLATE_DOC_PATH/sdk/js/tutorials/quick-start/getting-started-html5-and-javascript/index.html">Getting Started with HTML5 and JavaScript</a></strong> guide.</p>
+</blockquote><h2>What is MoSync Reload?</h2>
+<p>MoSync Reload lets you develop apps in HTML5 and JavaScript on your desktop machine and instantly see the result on any number of devices or emulators. It’s just like pressing “reload” in a web browser, but for native mobile apps!</p>
+<p>You can access native features such as camera, file system and sensors and create user interfaces using real native UI components.<br><br>Once you are happy with the application you have developed, you can use the MoSync SDK to take your project as-is, and build standalone applications for distribution through App Store, Android Market and Windows Marketplace.<br><br>Reload has three parts:</p>
+<ul>
+<li><strong>Reload Client:</strong> A client application installed on your emulators or devices</li>
+<li><strong>Reload Server:</strong> A server running on your PC/Mac/Linux machine</li>
+<li><strong>Reload Development UI:</strong> A user interface with development tools which you run in a web browser on your PC/Mac/Linux machine ("UI Client"). This UI installs with the Reload Server. Starting the server automatically launches the Development UI.</li>
+</ul>
+<p><img src="images/MoSync-Reload-Architecture.png" align="none" width="650" height="241"></p>
+<h2>Download Reload</h2>
+<p>To use Reload, you need to install the Reload server on a desktop machine, and then install the Reload client app on one or more devices or emulators.</p>
+<p><a href="http://www.mosync.com/download/reload">Download the Reload package</a> from the MoSync Reload download page to get started. This download contains bot the Reload Server/Development UI, and the Reload Client. It is however often the most convinient to install the Reload Client directly from the App Store of your device (see instructions below).</p>
+<h2>Installing the Reload Development UI/Server</h2>
+<h3>On Windows</h3>
+<ol>
+<li>Download the <a href="http://www.mosync.com/download/reload">latest version of MoSync Reload</a> for Windows and unzip it.</li>
+<li>Move the contents of the unzipped file to a suitable location, for example <em>C:/Reload</em>. (Below we will call this the "<em>install-dir</em>".)</li>
+</ol>
+<h3>On OS X</h3>
+<ol>
+<li>Download the <a href="http://www.mosync.com/download/reload">latest version of MoSync Reload</a> for OS X.</li>
+<li>Download and mount the Reload disk image.</li>
+<li>Open the disk image and drag the Reload server application to your Applications folder.</li>
+<li>Optional: open the Applications folder and drag the Reload icon to the Dock for easy access.</li>
+</ol>
+<h3>On Linux</h3>
+<ol>
+<li>Download the <a href="http://www.mosync.com/download/reload">latest version of MoSync Reload</a> for Linux and extract it.</li>
+<li>Move the contents of the unzipped file to a suitable location, for example <em>/home/yourName/Reload</em>.</li>
+<li>If you have problems starting the Reload server, make sure it has executable file rights set.</li>
+</ol>
+<h2>Installing the Reload Client on a Device</h2>
+<p>The easiest way to install the MoSync Reload Client on a device is to download and install it from Google Play, Windows Phone Marketplace, or Apple App Store. <strong>Search in the App stores for "MoSync Reload"</strong>.<br><br>If you install the Reload Client this way, you do not need Visual Studio, or Xcode, or the Android SDK at all. unless you want to use the emulators in those SDKs. In this case a "manual" install is needed (see below).</p>
+<h2>Installing the Reload Client on a Simulator/Emulator</h2>
+<p>When using a Simulator or an Emulator you usually cannot install apps from the App Stores. In this case, you need to use the development tool for the target platform to build and install the Reload Client. This method can also be used as an alternative to installing the Reload Client on a device.</p>
+<p>The Reload download package includes Reload Client projects for XCode (iOS), Visual Studio (Windows Phone), and an installable Reload Client .apk file for Android. If you’re using an Android device or emulator, you just need to install the provided .APK on it. For iOS and Windows Phone, you need to build the client using XCode or Visual Studio. Thus you need to download these SDKs, or ask friend with access to them to build the reload client app for you.<br><br><em>Once you’ve installed the client on a device, you will not need access to the platform SDKs when using Reload.</em> So, for instance, if you have an iPhone but no Mac, you only ask a Mac owner to build the application and install it on your phone, and then you can get on with development. However, in order to use emulators, you will need to have the platform SDKs installed.</p>
+<p>Detailed instructions follow below.</p>
+<h3>Install in the iOS simulator on OS X</h3>
+<ol>
+<li>Drag the iOS Client project folder from the Reload disk image to the desktop.</li>
+<li>Open the <em>iOS Client</em> project folder.</li>
+<li>Open the ReloadClient xcodeproj. (Xcode opens.)</li>
+<li>In Xcode, select the ReloadClient project from the left-hand navigation tree.</li>
+<li>Select the iPhone Simulator as the target.</li>
+<li>Run the project. When the project has been built, the simulator will open, running the Reload Client.</li>
+</ol>
+<h3>Install in the Android Emulator on Linux or OS X</h3>
+<p>The Reload Server includes a copy of the Android Debug Bridge (adb). To install the Reload Client on the Android emulator on a Linux machine or an Apple Mac running OS X:</p>
+<ol>
+<li>Start the Android Emulator through the Android Virtual Device Manager (AVD).</li>
+<li>Open a terminal window.</li>
+<li>On OS X, go to the <em>Android Client</em> folder in the disk image.On Linux, go to the<em> Android Client</em> folder under your Reload installation directory.</li>
+<li>Type:</li>
+</ol>
+<pre>&nbsp;&nbsp;&nbsp; ../server/bin/[Linux/Mac]/adb install ReloadClient.apk 
+</pre>
+<h3>Install in the Android Emulator on Windows</h3>
+<p>To install the Reload Client on the Android emulator on a Windows machine:</p>
+<ol>
+<li>Start the Android Emulator through the Android Virtual Device Manager (AVD). Wait until the emulator has fully loaded.</li>
+<li>Open the Windows command shell (cmd) and execute the following command:</li>
+</ol>
+<pre>&nbsp;&nbsp; "install-dir\server\bin\win\android\adb.exe" install "install-dir\Android Client\ReloadClient.apk"</pre>
+<p>where <em>install-dir</em> is the path where you installed MoSync Reload. For example:</p>
+<pre> "C:\Reload\server\bin\win\android\adb.exe" install "C:\Reload\Android Client\ReloadClient.apk"</pre>
+<h3>Install in the Windows Phone Emulator on Windows</h3>
+<p>To install the Reload Client on a Windows Phone Emulator you need first to install Microsoft Visual Studio and the Windows Phone SDK.</p>
+<ol>
+<li>Open the Visual Studio project in the <em>WindowsPhone</em> Client folder located in your Reload folder.</li>
+<li>Press the run button on Visual Studio to install the app and run it on the emulator.</li>
+</ol>
+<h2>Running Reload</h2>
+<blockquote><p>The Development UI in MoSync Reload 1.0 is designed for use with WebKit-compatible browsers such as <strong>Google Chrome</strong> and <strong>Apple Safari</strong>. In other browsers, such a Mozilla Firefox, the weinre tool is not available, and some functionality may not be available. If your default browser is not WebKit-compatible, kindly open the Reload Development UI manually in Chrome or Safari.</p>
+</blockquote><h3>Mac OSX</h3>
+<p>MoSync Reload supports Mac OS X 10.7+. In the Mac download you get a DMG image, which includes an .app package that you can copy into the Application folder on your machine. Then all you need to do is to double click on the Reload icon to run Reload Server/UI on your Mac.</p>
+<p>When launching Reload, a server log window is opended, and the UI opens in your default browser.</p>
+<h3>Windows</h3>
+<p>On Windows you receive a zip file that includes the client projects and an executable file for the Reload server and UI. Double clicking the executable file <strong>Reload.exe</strong> starts the server, opens server log window, and the also opens the UI in your default web browser.</p>
+<p>If the Reload UI/Server does not start, check the following:</p>
+<ul>
+<li>If you are running Windows Firewall or a similar program, it may block Evented I/O for JavaScript. You will need to allow access to this feature on private networks.</li>
+<li>On some Windows machines, launching ReloadLuncher.exe might result in a complaint about node.js even if it was successfully installed. In this case change the environment variable created by the node.js installer by removing the last blackslash from the variable. That is, update the path from [<em>install-dir</em>]\nodejs\ to [<em>install-dir</em>]\nodejs.</li>
+<li>The downloaded client project files may be marked unsafe and blocked by Windows. If this is the case, trying to build the client will result in the error "mosyncRuntime.dll cannot be loaded". The solution is <a href="http://msdn.microsoft.com/en-us/library/ee890038%28VS.100%29.aspx">here</a>. (In short, unblock the <em>mosyncRuntime.dll</em> and any other file that cannot be found/loaded.)</li>
+</ul>
+<h3>Linux</h3>
+<p>Reload is tested on Ubuntu Linux 10.10+ and Kubuntu Linux 10.10+, and needs either GNOME or KDE. The Linux download is a tarball with all the required files. To run Reload on Linux, extract the package, then open a terminal window and go to the extracted folder and type:</p>
+<pre class="mosync-code-cpp">#&gt; ./reload</pre>
+<p>The reload shell script starts the server. The server log is displayed in the same terminal window.To start the UI, open a WebKit browser and navigate to the following address:</p>
+<pre class="mosync-code-cpp">http://localhost:8283</pre>
+<h2>Stopping the Reload Server</h2>
+<p>To quit the Reload Server, close the terminal window(s) that were opended when starting the server. If you launched Reload Server from the command line, use CTRL-C to terminate.&nbsp;</p>
+<p>To exit the Reload Development UI, just close the page in the Web Browser.</p>
+<h2>Connecting Clients to Reload</h2>
+<p>To connect your clients to the Reload server you will need to have them connected to the same local network (WiFi). Start the Client on the device/emulator and type in the IP address for the server in the edit box. The IP address is displayed in the lower-left corner of the Development UI, and is also shown in the instructions under the Quick Start tab:</p>
+<p><img src="images/Reload_QuickStart.png" align="none" width="651" height="426"></p>
+<p><strong>Note:</strong> If running the Reload client app in the <strong>Android emulator</strong> and connecting the server running on the same machine (localhost), use the IP address: <strong>10.0.2.2</strong></p>
+<h2>Projects and the Workspace</h2>
+<p>The Development UI for Reload lets you manage your projects and reload them on the connected clients. <br>The project list displays all the project located in your current workspace, which is simply a directory on your hard drive. By default, this will be a folder named <em>MoSync_Reload_Projects</em> located in your home directory.</p>
+<p>This screenshot shows a project in the project list, which has been selected by clicking on it:</p>
+<p><img src="images/Reload_WebUIApp_Selected_CloseUp.png" align="none" width="315" height="194"></p>
+<h2>Reloading Projects</h2>
+<p>Select a project and click the <strong>Reload</strong> button to reload the project on connected devices. All the files in the <em>LocalFiles</em> subdirectory of the project directory are bundled into a single file, which is extracted on the device to the application’s local file system. The file <em>index.html</em> is then displayed by the app.</p>
+<p>The <strong>Inspect</strong> button will also reload your project, but with the code set up for use with the weinre inspection tool. Note that the inspect option also instruments your JavaScript code, to catch runtime errors.</p>
+<h2>Creating Projects</h2>
+<p>On the top of the project list, there are buttons to create projects and change workspace:</p>
+<p><strong>New Project</strong> creates a new project in the currently selected workspace (a workspace is just a folder on the disk).</p>
+<p><strong>Change Workspace</strong> opens a dialog to select a folder. You can also type in a new folder location to create a new workspace.<br><br><strong>Refresh</strong> will scan the current workspace folder and update the project list in case projects have been created or deleted on the file system (using the file manegement tools of the operating system).</p>
+<h2>Editing Projects</h2>
+<p>When selecting a project, several action items are also displayed:</p>
+<p><strong>Open</strong> opens a folder that shows the files in the project.To edit project files (HTML/CSS/JavaScript files), you can use your favourite text editor. Reload does not force you to switch to a new editor.&nbsp;You can also drop in and edit media files, like images and sounds. If you have an existing HTML5 project, drop the files here to get up and running. <strong>Note:</strong> The main HTML file must be named <em>index.html</em>.<strong></strong></p>
+<p><strong>Rename</strong> opens a dialog to input a new project name.<strong></strong></p>
+<p><strong>Delete</strong> deletes all the project files on disk.</p>
+<h2>Tools in the Reload UI</h2>
+<p>The Reload UI contains the following tools, each available under its own tab:</p>
+<p><strong>Quick Start</strong> displays a guide that helps you to get started with using Reload.</p>
+<p><strong>Weinre (Beta)</strong> is an industry standard HTML/JS web inspector to help debug applications. This is the first Release of Reload that comes with weinre, and we provide it as a beta feature. Note that for weinre to work, you must reload your project with the <strong>Inspect</strong> button.</p>
+<p><strong>Workbench</strong> is a JavaScript evaluation tool that you can use to instantly run JavaScript code on connected devices. The JaavScript Workbench is useful for experimenting with code, debugging, and for learning coding. Please, see the <a href="TEMPLATE_DOC_PATH/reload/guides/tools/using-javascript-workbench/index.html">JavavaScript Workbench Tutorial</a> for further details.</p>
+<p><strong>Log</strong> displays log messages printed by mosync.rlog, error messages and results from code evaluated in the Workbench. To print a log message here from your JavaScript code, just use: mosync.rlog("Hello World")</p>
+<p>API Reference gives you the documentation for the MoSync JavaScript APIs. They give you access to native features such as camera, sensors, file system, and native UI components.</p>
+<h2>Creating a Quick Test App</h2>
+<p>Follow these steps to test that MoSync Reload is set up correctly:</p>
+<ol>
+<li>In the Reload Development UI, click the <strong>"New Project"</strong> button to add a new project.</li>
+<li>Select the <strong>Web based</strong> Project Type.</li>
+<li>Name the project. (It is usually best to use only alphanumeric characters and underscores.)</li>
+<li>Click the <strong>Create</strong> button. The project appears in the Projects list.</li>
+<li>Select the project by clicking at it in the list.</li>
+<li>Make sure you have a device/emulator running the Reload Client connected.</li>
+<li>Click the <strong>Reload</strong> button. The project should be sent to all the connected clients (emulators and devices), and launch.</li>
+<li>Click the <strong>Finder</strong> button next to the new project's name. The /LocalFiles folder will open showing you the HTML, CSS, and JavaScript files for this project.</li>
+<li>Open the <em>index.html</em> file in a text editor.</li>
+<li>Make and update to the HTML/JS code, for example, change the heading text in the document body.</li>
+<li>Save the file.</li>
+<li>Click the <strong>Reload</strong> button next to the project's name.</li>
+<li>The updated project should be sent to all the connected clients (simulators and devices), and run, showing the new heading text.</li>
+</ol>
+<p>That's how quick and easy it is to edit and reload apps across multiple clients using MoSync Reload!</p>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>What's New in MoSync Reload 1.0</title>
+</head>
+<body>
+<h1>What's New in MoSync Reload 1.0</h1>
+<p>MoSync Reload 1.0 (compatible with the MoSync SDK 3.2.1) provides enhanced functionality for rapid development of HTML5/JavaScript mobile apps across multiple mobile devices and simulators. This release also features a completely revamped Development UI to simplify and streamline the development workflow.<!--break--></p>
+<p></p>
+<blockquote><p><strong>Use a WebKit-compatible browser:</strong> The Development UI in MoSync Reload 1.0 is designed for use with WebKit-compatible browsers such as <strong>Google Chrome</strong> and <strong>Apple Safari</strong>. In other browsers, such a Mozilla Firefox, the weinre tool is not available, and some functionality may not be available.</p>
+</blockquote><blockquote><p><strong>Update your existing projects and installed clients:</strong> I you have projects created with previous versions of MoSync Reload or MoSync SDK, <strong>make sure to update the wormhole.js</strong> file to the latest version. Also make sure to <strong>install the latest Reload Client</strong> on your devices/simulators. <em><strong>Please note that Reload Client 1.0 are NOT compatible with Reload 1.0.1. For Reload 1.0.1 you need to install the new Reload Client 1.0.1 app on your devices.</strong></em></p>
+</blockquote><h2>What is in this document?</h2>
+<p>This document provides an overview of what is new in Reload release 1.0 and 1.0.1. New functionality, important upgrade information, bug fixes, known limitations.</p>
+<p>MoSync Reload consists of two major components, the Reload Client running on the device, and the Development UI running on a desktop machine. (The Development UI runs in a WebKit browser, and talks to the Reload Server that communicates with the Reload Client).</p>
+<h2>Revamped Development UI</h2>
+<p>The UI for developing Reload apps has been redesigned and updated. New tools such as the JavaScript Workbench and weinre has been added. There is also a new Quick Start guide to help you get started easily.</p>
+<h2>Updated Reload Client application</h2>
+<p>The Reload Client application has been updated with support for the new tools in the Development UI. The <a href="http://www.mosync.com/download/reload">MoSync Reload 1.0 downloads</a> includes native Reload Client projects for Android, iOS, and Windows Phone. The new clients are also available from online app stores and marketplaces. Please ensure that you have the latest Reload Client installed before starting to use Reload. The new Development UI and server work only with the new version of the client app.</p>
+<h2>Updating Existing Projects</h2>
+<p>For detailed instructions, please read the <strong><a href="TEMPLATE_DOC_PATH/sdk/js/guides/wormhole/update-wormhole/index.html">Wormhole Upgrade Guide</a></strong>.</p>
+<h3>Updating wormhole.js</h3>
+<p>For your existing projects to work in the new Reload version (and in MoSync SDK 3.2.1), you must update the file <strong>wormhole.js</strong> to the most recent version. Just make a copy of this file from a project created with the new version of Reload, and paste it into your existing project to replace the old version.</p>
+<h3>Updating MoSync SDK</h3>
+<p>If you want to build a native app from your Reload project that you can put on the App stores, you need to use MoSync SDK 3.2.1. Get it from the <a href="http://www.mosync.com/download">download page</a>.</p>
+<h3>Updating your C++ code</h3>
+<p>If you have existing projects you build using MoSync SDK, you need to update them if they were created with MoSync SDK 3.1.1 or earlier versions. Class WebAppMoblet (deprecated) has been replaced by class HybridMoblet. If you just created an HTML5 project created from a template without modifying any C++ code, you can create a new project using Reload 1.0 or MoSync SKD 3.2.1 and paste your HTML/JS files and resources into the new project. That should work out-of-the-box.</p>
+<h2>New Wormhole Functionality</h2>
+<p>The MoSync JavaScript library has been updated with new functionality. Updating Wormhole apps is essential if you have existing apps developed with previous Reload or MoSync SDK versions.</p>
+<h3>Screen Orientation Support in JavaScript</h3>
+<p>There is a new function for setting the screen orientation of the device called<strong> mosync.app.screenSetOrientation()</strong>. This function allows you to set the screen orientation to portrait, landscape, or dynamic mode. Examples:</p>
+<pre class="mosync-code-cpp">mosync.app.setScreenOrientation(mosync.SCREEN_ORIENTATION_DYNAMIC);
+mosync.app.setScreenOrientation(mosync.SCREEN_ORIENTATION_PORTRAIT);
+mosync.app.setScreenOrientation(mosync.SCREEN_ORIENTATION_LANDSCAPE);</pre>
+<h3>Open External Web Browser from JavaScript</h3>
+<p>If you want to open an external website from your app, you can open a URL in the web browser of the device using the new function <strong>mosync.app.openExternalURL()</strong>. Opening the URL&nbsp;directly in a WebView widget is also possible, but may not provide the support users need, like web navigation. You can also use this function to dial a telephone number directly from your app. Examples:</p>
+<pre class="mosync-code-cpp">mosync.app.openExternalURL("http://maps.google.com/");
+mosync.app.openExternalURL("tel:046850510300");</pre>
+<h2>Inspection Tool (weinre)</h2>
+<p>The inspection tool <strong>weinre</strong> (<a href="http://people.apache.org/~pmuellr/weinre/docs/latest/">WEb INspector REmote</a>) is an industry standard HTML/JavaScript tool which is useful for debugging HTML5/JavaScript apps. This tool is now available in the Reload Development UI. Using weinre, you can inspect and manipulate your domain object model (DOM), manage HTML5 databases and storage, and view JavaScript log messages with console.log. Check out the <a href="http://people.apache.org/~pmuellr/weinre/docs/latest/">weinre online documentation</a>.</p>
+<p>Known limitations:</p>
+<ul>
+<li>weinre supports WebKit browsers. This means the to use weinre, you must run the Development UI in a browser such as Chrome or Safari, and the Reload Client must run on Android or iOS (weinre is not currently not supported on Windows Phone).</li>
+</ul>
+<ul>
+<li>When using weinre with Reload, currently only the main project file, index.html is inspectable.</li>
+</ul>
+<ul>
+<li>Note that weinre is only enabled when the weinre tab is selected. If moving away from this tab (by selecting another tab), e.g. logging will not be functional until you return to it.</li>
+</ul>
+<ul>
+<li>The client part of weinre takes some time to connect to the server, so initial console.log messages may not display in the weinre log console.</li>
+</ul>
+<h2>JavaScript Workbench</h2>
+<p>This tool lets you evaluate single or multiple JavaScript statements and immediately see the result. The Workbench gives you a very quick way to experiment with JavaScript code before adding it into your application. This is useful for both development and debugging. Any return values and error mesags are shown under the Log tab. See the <a href="TEMPLATE_DOC_PATH/reload/guides/tools/using-javascript-workbench/index.html">JavavaScript Workbench Tutorial</a> for further details.</p>
+<h2>Unified JavaScript Logging</h2>
+<p>Different devices output console.log messages in different ways. One way to get all of your console.log output display in the Reload Development UI (under the Log tab) is to define this at the start of your app (but after loading wormhole.js and other JavaScript libraries):</p>
+<pre class="mosync-code-cpp">console.log = mosync.rlog;</pre>
+<h2>Improved Power Usage by Hybrid Moblets</h2>
+<p>We have improved the power usage of the <a href="http://www.mosync.com/files/imports/doxygen/latest/html/class_wormhole_1_1_hybrid_moblet.html">HybridMoblet</a> in the Wormhole C++ Library, dramatically reducing battery drain when an app is sent to the background. To take advantage of this improvement, you will need to rebuild your apps using the new MoSync SDK 3.2.1. Note that this affects only applications that are build and deployed using the SDK. The new version of the Reload Client also have this fix enabled.</p>
+<h2>Quick Start Guide</h2>
+<p>The Reload Development UI has a new Quick Start guide to get you up and running in a matter of minutes. The guide shows you how to connect devices, create projects, edit source files, quickly reload apps, and work with the different tools in Reload.</p>
+<h2>Updated User Guides and Tutorials</h2>
+<p>All guides and tutorials for MoSync Reload have been updated for this new release and are available online in our <a href="TEMPLATE_DOC_PATH/reload/guides/quick-start/mosync-reload-overview/index.html">Getting Started with MoSync Reload</a> page.</p>
+<h2>Bugs and Known Limitations</h2>
+<p><strong>Moving or deleting the current workspace folder.</strong> If the Reload workspace folder is moved or deleted, the Reload server will crash wen started. A fix for this is to delete (or edit) the file <strong>lastWorkspace.dat</strong>, which is find the the Reload server directory. This file contains a string with the last used workspace. (A Reload workspace is a directory that contains MoSync HTML5 projects.)</p>
+<p><strong>Duplicated main.cpp files.</strong> (<strong>This bug has been fixed in Reload 1.0.1.</strong>) There is a bug that causes two copies of the file main.cpp to be created you create a new project in Reload. As long as you use Reload, this causes no problems, but if you build the project in the MoSync SDK (using the MoSync Eclipse IDE) you will get a build error. The workaround is to delete the main.cpp file in the LocalFiles foler (and keep the one in the root folder of the project).</p>
+<p><strong>Fixed bugs:</strong> <a href="http://jira.mosync.com/secure/IssueNavigator.jspa?mode=hide&amp;requestId=10716">List of bugs fixed in Reload 1.0</a>.</p>
+</body>
+</html>

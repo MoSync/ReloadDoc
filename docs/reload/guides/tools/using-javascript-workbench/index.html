@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>Using The Reload JavaScript Workbench</title>
+</head>
+<body>
+<h1>Using The Reload JavaScript Workbench</h1>
+<p>MoSync Reload has a JavaScript Workbench that helps speed-up and simplify the development of the JavaScript code needed by you app. Using the Workbench you can quickly try out JavaScript statements and see their effect. This tutorial will get you started.<!--break--></p>
+<p></p>
+<h2>Using the Workbench</h2>
+<p>When you have<a href="TEMPLATE_DOC_PATH/reload/guides/quick-start/mosync-reload-quick-start/index.html"> installed MoSync Reload</a>, you can find the JavaScript Workbench under the <strong>Workbench</strong> tab in the Development UI:</p>
+<p><img src="images/Reload_WebUI_Workbench_Highlighted.png" align="none" width="650" height="415"></p>
+<p>Before you start using the Workbench, do the following:</p>
+<ul>
+<li><a href="TEMPLATE_DOC_PATH/reload/guides/quick-start/mosync-reload-quick-start/index.html#Connecting_a_Client_to_the_Reload_Server">Connect</a> at least one device or simulator/emulator<a href="TEMPLATE_DOC_PATH/reload/guides/quick-start/mosync-reload-quick-start/index.html#Connecting_a_Client_to_the_Reload_Server"></a></li>
+<li><a href="TEMPLATE_DOC_PATH/reload/guides/quick-start/mosync-reload-quick-start/index.html#Creating_a_Quick_Test_App">Reload </a>a web-based project to the device or simulator/emulator</li>
+</ul>
+<blockquote><p><strong>Note</strong>: if you want to reload a web-based project that was <em>not</em> created in Reload version 1.0 or later, you will need to update your project's<em> /wormhole.js</em> file before using the workbench. For more information, see <a href="TEMPLATE_DOC_PATH/sdk/js/guides/wormhole/update-wormhole/index.html">Updating your Wormhole App</a>.</p>
+</blockquote><h2>Evaluating JavaScript Code</h2>
+<p>To evaluate JavaScript, highlight one or more lines of code then click the "<span style="text-decoration: underline; color: #3366ff;">Run Selected Code</span>" link at the bottom of the editor view.</p>
+<p>We have provided some simple JavaScript statements in the default Workbench view for your to try:</p>
+<pre class="mosync-code-cpp">mosync.rlog('Hello World') // Displayed in Log tab
+mosync.app.openExternalURL('http://maps.google.com/')
+mosync.app.screenSetOrientation(mosync.SCREEN_ORIENTATION_LANDSCAPE)
+mosync.app.screenSetOrientation(mosync.SCREEN_ORIENTATION_PORTRAIT)
+mosync.app.screenSetOrientation(mosync.SCREEN_ORIENTATION_DYNAMIC)
+document.body.innerHTML = '&lt;h1&gt;Hello World&lt;/h1&gt;'</pre>
+<p>The first statement makes use of <a href="http://www.mosync.com/files/imports/doxygen/latest/html5/mosync-resource.js.html#mosync.rlog">mosync.rlog</a> to send a log message back to the Reload Development UI (nothing is visible on the client side, but the message itself will appear under the <strong>Log</strong> tab). The second statement opens an external URL. The next three statements affect the orientation of the client app. (Remember to turn on screen rotation on your device, if applicable) The final statement rewrites the HTML body tag of the app, and replaces it with the H1 heading "Hello World" (you can get your app back by pressing "Reload" in the Development UI).</p>
+<p>Try all the statements at least once and check that everything works as advertised, then you are ready to move on to something a little more complex.</p>
+<h2>Something a Little More Complex</h2>
+<p>To give a sense of what you can do with the Workbench in terms of interactively trying out code, try the following example:</p>
+<pre class="mosync-code-cpp">// Copy this code to your Workbench.
+
+// 1. Select and run to start timer:
+myapp = {}
+myapp.counter = 2000
+myapp.interval = 1000
+myapp.fun = function() {
+    document.body.innerHTML = "&lt;h1&gt;Hello " +
+        (myapp.counter++) + "&lt;/h1&gt;"
+    setTimeout(myapp.fun, myapp.interval)
+}
+myapp.fun()
+
+// 2. Now test to change myapp.counter and myapp.interval
+// by editing the lines above, select one of them or both
+// and then run the selected code. Enjoy the result.
+
+// 3. Select and run to stop timer:
+myapp.fun = function() {}</pre>
+<p>Any errors and return values will show up under the Log tab.</p>
+<p>Note that you can select any part of the text and evaluate it as JavaScript code.</p>
+<p>For example, try selecting:</p>
+<pre>myapp.counter </pre>
+<p>And evaluate (run) the code. Look in the Log tab to see the value.</p>
+<p>Now select:</p>
+<pre>myapp</pre>
+<p>And evaluate (run) the code. Again, look in the Log tab to see the value.</p>
+<p>This is a useful way of quickly inspecting the value of variables and teh return value of functions.</p>
+<p>To instantly be able to try out pieces of code is useful for both learning to program and developing code.</p>
+<h2>Error Messages</h2>
+<p>Error messages from the code evaluated in the Workbench are under the Log tab. Similarly, return values except those of type "undefined" are also shown on the Log tab.</p>
+<p>Try selecting some random parts of the code (incomplete statements) in the Workbench and see which errors are produced. Try to do a computation with an undefined variable and see what happens. Try to call a function that is not defined.</p>
+<p>Some examples, evaluating foobar and foobar() (assuming foobar is not defined):</p>
+<pre>foobar --&gt; ReferenceError: foobar is not defined
+foobar() --&gt; ReferenceError: foobar is not defined</pre>
+</body>
+</html>
