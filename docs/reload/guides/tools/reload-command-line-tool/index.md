@@ -10,8 +10,6 @@ Reload Command Line Tool
 
 By Igor Eklund
 
-**Note: This page is only valid for the upcoming Reload 1.1 release.**
-
 Invoke Reload from the command line
 -----------------------------------
 

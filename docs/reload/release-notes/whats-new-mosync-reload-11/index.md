@@ -2,7 +2,7 @@
 <meta name="description" content="MoSync Reload 1.1 Release Notes." />
 <meta name="keywords" content="mobile development,dev,sdk,ide,apps,mobile,apps,android,ios,iphone,ipad,mobile,open source,application,ide,cross
 platform,programming,mosync,,reload,mosync reload,native ui,nativeui" />
-<title>MoSync Reload 1.1 Release Notes</title>
+<title>What's New in MoSync Reload 1.1</title>
 </mosyncheadertags> -->
 
 <style>
@@ -13,7 +13,7 @@ platform,programming,mosync,,reload,mosync reload,native ui,nativeui" />
 }
 </style>
 
-# MoSync Reload 1.1 Release Notes
+# What's New in MoSync Reload 1.1
 
 ## Summary of new features
 
@@ -40,7 +40,9 @@ Summary of new features in the app:
 * Launching saved projects (works when you are not connected to the server).
 * Reloading projects directly from the app (alternative to reloading from the Developer UI).
 
-Read more about these new features in the [Reload Client guide](TEMPLATE_PATH_DOC/reload/guides/tools/reload-client/index.html).
+<!--
+Read more about these new features in the [Reload Client guide](TEMPLATE_DOC_PATH/reload/guides/tools/reload-client/index.html).
+-->
 
 ## Updated Development UI
 
@@ -50,7 +52,7 @@ The Reload Development UI has been updated with several new features.
 
 The JavaScript Workbench has been updated to be integrated with the Log message view (the Log tab has been removed). This makes it much easier to inspect the log while you are using the Workbench, since you do not have to switch between tabs. You can also resize the Log message view to use the entire viewing area if needed.
 
-Go to the guide [JavaScript Workbench](TEMPLATE_PATH_DOC/reload/guides/tools/using-javascript-workbench/index.html) for more details and code examples that show what you can do with the Workbench.
+Go to the guide [JavaScript Workbench](TEMPLATE_DOC_PATH/reload/guides/tools/using-javascript-workbench/index.html) for more details and code examples that show what you can do with the Workbench.
 
 ### New Example Gallery
 
@@ -60,7 +62,7 @@ You can copy apps in the gallery to your local workspace, or directly reload app
 
 The example gallery is dynamically loaded from the [MoSyncSamples](https://github.com/MoSyncSamples) GitHub repository.
 
-If you are into experimenting, you can configure Reload to use a custom GitHub repository. This is done in the file **application/globals.js**, which is found in the Reload Server directory. Consult the guide [Configuring Reload](TEMPLATE_PATH_DOC/reload/guides/tools/configuring-reload/index.html) for further details.
+If you are into experimenting, you can configure Reload to use a custom GitHub repository. This is done in the file **application/globals.js**, which is found in the Reload Server directory. Consult the guide [Configuring Reload](TEMPLATE_DOC_PATH/reload/guides/tools/configuring-reload/index.html) for further details.
 
 ### Highlight hint help system
 
@@ -88,7 +90,7 @@ Options are:
 
 Starting the Reload Server without automatically launching the Development UI is useful when you wish to use Reload with a different browser than your default browser, or when you wish to run the server on a remote machine.
 
-To learn about how to use the command options, consult the guide [Configuring Reload](TEMPLATE_PATH_DOC/reload/guides/tools/configuring-reload/index.html).
+To learn about how to use the command options, consult the guide [Configuring Reload](TEMPLATE_DOC_PATH/reload/guides/tools/configuring-reload/index.html).
 
 ## Command Line Tool for Reload
 
@@ -108,7 +110,7 @@ The Command Line Tool currently assumes the Reload Server is running on the same
 
 Read more in the [Command line tool user guide](TEMPLATE_DOC_PATH/reload/guides/tools/reload-command-line-tool/index.html).
 
-**TODO: Guide for sublime plugin?**
+<!-- **TODO: Guide for sublime plugin?** -->
 
 ## Known Limitations
 
