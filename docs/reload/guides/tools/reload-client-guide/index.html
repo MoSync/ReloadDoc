@@ -1,0 +1,97 @@
+<html>
+<head>
+<!-- <mosyncheadertags>
+<meta name="description" content="MoSync Reload Command Line Tool - Invoke Reload from the command line, run Reload from your favourite editor." />
+<meta name="dcterms.description" content="MoSync Reload Command Line Tool - Invoke Reload from the command line, run Reload from your favourite editor." />
+<meta name="keywords" content="app development,mobile development,javascript,rapid development" />
+<title>MoSync Reload - Reload Command Line Tool</title>
+</mosyncheadertags> -->
+</head>
+<body>
+<h1>Reload Command Line Tool</h1>
+
+<p>By Igor Eklund</p>
+
+<h2>Invoke Reload from the command line</h2>
+
+<p>I&#39;m thrilled to announce that it&#39;s now possible to invoke Reload functionality from command line! One implication of this is that automation of some repetitive tasks associated with Reload becomes an option. Below I&#39;m going to show how to create and reload a project from command line and a couple examples of how this feature could be used to automate reloading of a project from a your favourite code editor.</p>
+
+<h2>The basics</h2>
+
+<p>First you have to launch Reload application and connect at least one device to the Reload. When you&#39;ve done that, point your command line terminal to the Reload installation directory where the Reload command line script is located. On OS X it&#39;s typically <code>/Applications/Reload.app/Contents/Resources/</code> and on windows it&#39;s in <code>MoSync_Reload_Windows\server\</code> From there run following commands.</p>
+
+<h3>On OSX and Linux</h3>
+
+<p>Confirm that you have client&#39;s connected:</p>
+
+<pre><code>$ ./cli clients</code></pre>
+
+<p>Output should then look something like this:</p>
+
+<pre><code>Name      Address          Platform    Version
+--------------------------------------------------
+maguro    192.168.0.132    Android     4.1.1</code></pre>
+
+<p>Create a new project:</p>
+
+<pre><code>$ ./cli create My_Awesome_Project</code></pre>
+
+<p>Reload the project you just created:</p>
+
+<pre><code>$ ./cli reload My_Awesome_Project</code></pre>
+
+<p>You can replace <code>My_Awesome_Project</code> with your own awesome name. By default the project will be created in your current Reload workspace directory. If your would like to change workspace to something else, following command can be used:</p>
+
+<pre><code>$ ./cli workspace -p /path/to/your/workspace</code></pre>
+
+<p>To see what projects are in current workspce run:</p>
+
+<pre><code>$ ./cli projects</code></pre>
+
+<p>For all other available options:</p>
+
+<pre><code>$ ./cli [command] --help</code></pre>
+
+<h3>On Windows</h3>
+
+<p>On a windows machine you can run command line tool by pointing your terminal to <code>MoSync_Reload_Windows\server\</code> catalogue and run</p>
+
+<pre><code>&gt; bin\win\node.exe cli --help</code></pre>
+
+<p>That is, you have to prepend the script name with a reference to a working nodejs instance. In this example an instance bundled with MoSync Reload is used.</p>
+
+<h2>IDE integration</h2>
+
+<p>Now that we have some basics down let&#39;s put it to some use!</p>
+
+<h3>MoSync IDE integration</h3>
+
+<p>Following will make MoSync IDE call a reload command each time specified
+project is built.</p>
+
+<ul>
+<li>Right click on a project. Go to <code>Properties &gt; Builders &gt; New</code></li>
+<li>In &quot;Location&quot; field, enter path to a working nodejs instance.</li>
+<li>In &quot;Arguments&quot; field put path to the <code>cli</code> file  and a command you would like to run.</li>
+</ul>
+
+<p>My setup on OS X looks like this:
+<img alt="MoSync IDE Reload integration." title="MoSync IDE Reload integration." src="images/mosync_ide_cli_setup.png"/></p>
+
+<h3>Vim intergration</h3>
+
+<p>You can invoke reload directly form Vim by typing</p>
+
+<pre><code>:!./path/to/cli</code></pre>
+
+<p>Where <code>path/to</code> should be path to where the <code>cli</code> script is located.</p>
+
+<p>Or you can reload a specific project each time a file buffer is saved:</p>
+
+<pre><code>:autocmd BufWritePost * !./path/to/cli reload MyProject</code></pre>
+
+<h2>Final words</h2>
+
+<p>I hope you found this guide useful. And if you have any suggestions for improvements feel free to leave a comment!</p>
+</body>
+</html>

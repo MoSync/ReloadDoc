@@ -40,9 +40,7 @@ Summary of new features in the app:
 * Launching saved projects (works when you are not connected to the server).
 * Reloading projects directly from the app (alternative to reloading from the Developer UI).
 
-<!--
-Read more about these new features in the [Reload Client guide](TEMPLATE_DOC_PATH/reload/guides/tools/reload-client/index.html).
--->
+Read more about these new features in the [Reload Client guide](TEMPLATE_DOC_PATH/reload/guides/tools/reload-client-app/index.html).
 
 ## Updated Development UI
 
@@ -117,6 +115,8 @@ Read more in the [Command line tool user guide](TEMPLATE_DOC_PATH/reload/guides/
 Automatic server discovery in the Reload Client is only supported on Android and iOS, since Windows Phone do not have broadcast support.
 
 List of [known issues in Reload 1.1](http://jira.mosync.com/secure/IssueNavigator.jspa?mode=hide&requestId=11220).
+
+If you have projects created with an old version of Reload, make sure to update them. Specifically, you need to update the file <b>wormhole.js</b> to the latest version. Please read the [Wormhole Upgrade Guide](TEMPLATE_DOC_PATH/sdk/js/guides/wormhole/update-wormhole/index.html) for further details.
 
 ## Fixed Bugs
 
