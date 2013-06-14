@@ -4,36 +4,52 @@
 <meta name="description" content="MoSync Reload has a JavaScript Workbench that helps speed-up and simplify the development of the JavaScript code needed by you app. Using the Workbench you can quickly try out JavaScript statements and see their effect. This tutorial will get you started." />
 <meta name="dcterms.description" content="MoSync Reload has a JavaScript Workbench that helps speed-up and simplify the development of the JavaScript code needed by you app. Using the Workbench you can quickly try out JavaScript statements and see their effect. This tutorial will get you started." />
 
-<title>Using The Reload JavaScript Workbench | MoSync Guide/Tutorial</title>
+<title>The Reload JavaScript Workbench | MoSync Guide/Tutorial</title>
 </mosyncheadertags> -->
 </head>
 <body>
-<h1>Using The Reload JavaScript Workbench</h1>
+    
+<h1>The Reload JavaScript Workbench</h1>
+
 <p>MoSync Reload has a JavaScript Workbench that helps speed-up and simplify the development of the JavaScript code needed by you app. Using the Workbench you can quickly try out JavaScript statements and see their effect. This tutorial will get you started.<!--break--></p>
 <p></p>
-<h2>Using the Workbench</h2>
+
+<h2>Overview</h2>
+
 <p>When you have<a href="TEMPLATE_DOC_PATH/reload/guides/quick-start/mosync-reload-quick-start/index.html"> installed MoSync Reload</a>, you can find the JavaScript Workbench under the <strong>Workbench</strong> tab in the Development UI:</p>
-<p><img src="images/Reload_WebUI_Workbench_Highlighted.png" align="none" width="650" height="415"></p>
-<p>Before you start using the Workbench, do the following:</p>
+<p><img src="images/Reload_WebUI_Workbench_Highlighted.png" align="none" width="650" height="463"></p>
+<p>In the Workbench, you can type in JavaScript code, and by selecting code and clicking <span style="color: #3366ff;"><b>Run Selected Code</b></span>, the code is evaluated on connected devices. This is a handy way of trying out code snippets and debugging your app.</p>
+<p><b>Note that you can drag the divider</b> between the JavaScript editor and the Log panel, to resize them as needed.</p>
+<p>The JavaScript Workbench is inspired by the <b>Smalltalk Workspace</b>, which introduced the concept of selecting an evaluating code interactively in a text editor in the 1970:ies (read more <a rel="external" href="http://www.vpri.org/pdf/tr2009002_active_essays.pdf">here on page 4</a>). The name "Workbench" is a tribute to the <a rel="external" href="http://www.jasonmc.com/wp-content/uploads/2008/08/bouncing.gif">Amiga Workbench</a>.</p>
+
+<h2>Using the Workbench</h2>
+
+<p>Before you start using the Workbench, you need to do the following:</p>
 <ul>
-<li><a href="TEMPLATE_DOC_PATH/reload/guides/quick-start/mosync-reload-quick-start/index.html#Connecting_a_Client_to_the_Reload_Server">Connect</a> at least one device or simulator/emulator<a href="TEMPLATE_DOC_PATH/reload/guides/quick-start/mosync-reload-quick-start/index.html#Connecting_a_Client_to_the_Reload_Server"></a></li>
-<li><a href="TEMPLATE_DOC_PATH/reload/guides/quick-start/mosync-reload-quick-start/index.html#Creating_a_Quick_Test_App">Reload </a>a web-based project to the device or simulator/emulator</li>
+<li>Connect at least one device or simulator/emulator</li>
+<li>Reload a web-based project to the device or simulator/emulator</li>
 </ul>
-<blockquote><p><strong>Note</strong>: if you want to reload a web-based project that was <em>not</em> created in Reload version 1.0 or later, you will need to update your project's<em> /wormhole.js</em> file before using the workbench. For more information, see <a href="TEMPLATE_DOC_PATH/sdk/js/guides/wormhole/update-wormhole/index.html">Updating your Wormhole App</a>.</p>
-</blockquote><h2>Evaluating JavaScript Code</h2>
-<p>To evaluate JavaScript, highlight one or more lines of code then click the "<span style="text-decoration: underline; color: #3366ff;">Run Selected Code</span>" link at the bottom of the editor view.</p>
+<p>Please see the <a href="TEMPLATE_DOC_PATH/reload/guides/quick-start/mosync-reload-quick-start/index.html#Connecting_a_Client_to_the_Reload_Server">Reload User Guide</a> for details.</p>
+
+<h2>Evaluating JavaScript code</h2>
+
+<p>To evaluate JavaScript on the device, highlight one or more lines of code then click <span style="color: #3366ff;"><b>Run Selected Code</b></span> at the bottom of the editor view.</p>
 <p>We have provided some simple JavaScript statements in the default Workbench view for your to try:</p>
+
 <pre class="mosync-code-js">mosync.rlog('Hello World') // Displayed in Log tab
 mosync.app.openExternalURL('http://maps.google.com/')
-mosync.app.screenSetOrientation(mosync.SCREEN_ORIENTATION_LANDSCAPE)
-mosync.app.screenSetOrientation(mosync.SCREEN_ORIENTATION_PORTRAIT)
-mosync.app.screenSetOrientation(mosync.SCREEN_ORIENTATION_DYNAMIC)
+mosync.app.screenSetSupportedOrientations(mosync.SCREEN_ORIENTATION_LANDSCAPE)
+mosync.app.screenSetSupportedOrientations(mosync.SCREEN_ORIENTATION_PORTRAIT)
+mosync.app.screenSetSupportedOrientations(mosync.SCREEN_ORIENTATION_DYNAMIC)
 document.body.innerHTML = '&lt;h1&gt;Hello World&lt;/h1&gt;'</pre>
-<p>The first statement makes use of <a href="http://www.mosync.com/files/imports/doxygen/latest/html5/mosync-resource.js.html#mosync.rlog">mosync.rlog</a> to send a log message back to the Reload Development UI (nothing is visible on the client side, but the message itself will appear under the <strong>Log</strong> tab). The second statement opens an external URL. The next three statements affect the orientation of the client app. (Remember to turn on screen rotation on your device, if applicable) The final statement rewrites the HTML body tag of the app, and replaces it with the H1 heading "Hello World" (you can get your app back by pressing "Reload" in the Development UI).</p>
-<p>Try all the statements at least once and check that everything works as advertised, then you are ready to move on to something a little more complex.</p>
-<h2>Something a Little More Complex</h2>
+
+<p>The first statement makes use of <a href="TEMPLATE_DOC_PATH/reload/guides/debugging/debugging-javascript-rlog/index.html">mosync.rlog</a> to send a log message back to the Reload Development UI (nothing is visible on the client, but the message will appear in the Workbench Log panel). The second statement opens an external URL. The next three statements affect the orientation of the client app. (Remember to turn on screen rotation on your device, if applicable) The final statement rewrites the HTML body tag of the app, and replaces it with the h1 heading "Hello World" (you can get your app back by pressing "Reload" in the Development UI).</p>
+<p>Try evaluating the statements one by one to check that everything works as advertised, then you are ready to move on to something a little more complex.</p>
+
+<h2>Something a little more complex</h2>
+
 <p>To give a sense of what you can do with the Workbench in terms of interactively trying out code, try the following example:</p>
-<pre class="mosync-code-js">// Copy this code to your Workbench.
+<pre class="mosync-code-js">// Copy this code to the Workbench editor.
 
 // 1. Select and run to start timer:
 myapp = {}
@@ -52,21 +68,22 @@ myapp.fun()
 
 // 3. Select and run to stop timer:
 myapp.fun = function() {}</pre>
+
 <p>Any errors and return values will show up under the Log tab.</p>
 <p>Note that you can select any part of the text and evaluate it as JavaScript code.</p>
 <p>For example, try selecting:</p>
-<pre>myapp.counter </pre>
+<pre class="mosync-code-js">myapp.counter </pre>
 <p>And evaluate (run) the code. Look in the Log tab to see the value.</p>
 <p>Now select:</p>
-<pre>myapp</pre>
+<pre class="mosync-code-js">myapp</pre>
 <p>And evaluate (run) the code. Again, look in the Log tab to see the value.</p>
-<p>This is a useful way of quickly inspecting the value of variables and teh return value of functions.</p>
+<p>This is a useful way of quickly inspecting the value of variables and the return value of functions.</p>
 <p>To instantly be able to try out pieces of code is useful for both learning to program and developing code.</p>
 <h2>Error Messages</h2>
 <p>Error messages from the code evaluated in the Workbench are under the Log tab. Similarly, return values except those of type "undefined" are also shown on the Log tab.</p>
 <p>Try selecting some random parts of the code (incomplete statements) in the Workbench and see which errors are produced. Try to do a computation with an undefined variable and see what happens. Try to call a function that is not defined.</p>
 <p>Some examples, evaluating foobar and foobar() (assuming foobar is not defined):</p>
-<pre>foobar --&gt; ReferenceError: foobar is not defined
+<pre class="mosync-code-js">foobar --&gt; ReferenceError: foobar is not defined
 foobar() --&gt; ReferenceError: foobar is not defined</pre>
 </body>
 </html>

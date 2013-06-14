@@ -10,8 +10,6 @@ Reload Command Line Tool
 
 By Igor Eklund
 
-**Note: This page is only valid for the upcoming Reload 1.1 release.**
-
 Invoke Reload from the command line
 -----------------------------------
 
@@ -75,7 +73,9 @@ Following will make MoSync IDE call a reload command each time specified project
 -   In "Location" field, enter path to a working nodejs instance.
 -   In "Arguments" field put path to the `cli` file and a command you would like to run.
 
-My setup on OS X looks like this: ![MoSync IDE Reload integration.](images/mosync_ide_cli_setup.png "MoSync IDE Reload integration.")
+My setup on OS X looks like this: 
+
+![MoSync IDE Reload integration.](images/mosync_ide_cli_setup.png "MoSync IDE Reload integration.")
 
 ### Vim intergration
 
@@ -92,4 +92,4 @@ Or you can reload a specific project each time a file buffer is saved:
 Final words
 -----------
 
-I hope you found this guide useful. And if you have any suggestions for improvements feel free to leave a comment!
+I hope you found this guide useful. And if you have any suggestions for improvements feel free to leave a comment! I can be reached at igor at mosync.com.
